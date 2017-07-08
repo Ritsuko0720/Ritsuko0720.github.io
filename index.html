@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Remember 0416</title>
+        <link type="text/css" rel="stylesheet" href="style.css">
+      <link rel="stylesheet" type="text/css" href="backgroundTransition.css" />
+      	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="backgroundTransition.js"></script>
+        <script type="text/javascript" src="day_count.js"></script>
+  </head>
+  <body>
+    <section class="cover">
+      <div class="content">
+        <h2>We Must Remember It.</h2>
+        <hr>
+        <p><b><span id="COUNTER"></span></b></p>
+      </div>
+      <p class="copy">영원히 기억하겠습니다.</p>
+      <div class="backgroundTransition">
+        <div class="site-wrapper">
+          <div class="main">
+            <div class="wrap"> <a href="#navigation" style="table-layout:fixed" title="navigation menu" aria-label="navigation menu"> Navigation Menu <span class="bar bar-1"></span> <span class="bar bar-2"></span> <span class="bar bar-3"></span> </a>
+            </div>
+          </div>
+
+          <nav id="navigation" role="navigation">
+            <ul>
+              <li class="active"><a>처음으로</a></li>
+              <li><a href="1.html">준비중...</a></li>
+              <li><a href="2.html">준비중...</a></li>
+              <li><a href="3.html">준비중...</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      </section>
+
+<script type="text/javascript">
+
+var then = new Date('April 16, 2014') // 날짜 설정
+var now = new Date()
+var Total_sec = Math.floor((now.getTime() - then.getTime()) / 1000)
+
+function Day_counter(){
+  Remain_years = Math.floor((Total_sec / 86400) / 365)
+	Remain_days = Math.floor((Total_sec / 86400) - (Remain_years * 365))+1
+
+	Remain_days = Remain_days + '일 '
+  Remain_years = Remain_years + '년 '
+
+				COUNTER.innerHTML = "세월호 참사로부터 " + Remain_years + Remain_days + "지났습니다."
+				Total_sec++
+}
+Day_counter()
+setInterval("Day_counter()",1000)
+
+var Nav = function($) {
+
+  return {
+
+    init: function() {
+      this.cacheDom();
+      this.setupAria();
+      this.bindEvents();
+    },
+
+    cacheDom: function() {
+      this.$site = $('.site-wrapper');
+      this.$navBtn = this.$site.find('[href="#navigation"]');
+      this.$navBtnExpanded = this.$site.find('[aria-expanded]');
+      this.$nav = $('#navigation');
+      this.$navFirstLink = this.$nav.find('li:first-child a');
+      this.$navLastLink = this.$nav.find('li:last-child a');
+      this.$content = this.$site.find('.content');
+    },
+
+    bindEvents: function() {
+      this.$navBtn.on('click', this.toggleMenu.bind(this));
+      this.$navBtnExpanded.on('keydown', this.setFocus.bind(this));
+      this.$navFirstLink.on('keydown', this.returnFocusFirst.bind(this));
+      this.$navLastLink.on('keydown', this.returnFocusLast.bind(this));
+    },
+
+    setupAria: function() {
+      this.$navBtn.attr({
+			  'role': 'button',
+			  'aria-controls': 'navigation',
+			  'aria-expanded': 'false'
+			});
+
+      this.$site.attr({
+			  'data-nav-visible': 'false'
+			});
+    },
+
+    toggleMenu: function() {
+      var self = $(event.currentTarget);
+      event.preventDefault();
+			self.attr('aria-expanded') === 'true' ? this.closeMenu() : this.openMenu();
+    },
+
+    openMenu: function() {
+      this.$site.attr({
+			  'data-nav-visible': 'true'
+			});
+      this.$navBtn.attr({
+        'aria-expanded': 'true'
+      });
+    },
+
+    closeMenu: function() {
+      this.$site.attr({
+			  'data-nav-visible': 'false'
+			});
+      this.$navBtn.attr({
+        'aria-expanded': 'false'
+      });
+    },
+
+    returnFocusFirst: function() {
+      if (event.keyCode === 9) {
+        if (event.shiftKey) {
+          event.preventDefault();
+          this.$navBtn.focus();
+        }
+      }
+    },
+
+    returnFocusLast: function() {
+      if (event.keyCode === 9) {
+        if (!event.shiftKey) {
+          event.preventDefault();
+          this.$navBtn.focus();
+        }
+      }
+    },
+
+    setFocus: function() {
+      var self = $(event.target);
+      if (event.keyCode === 9) {
+        if (self.attr('aria-expanded') == 'true') {
+          if (!event.shiftKey) {
+            event.preventDefault();
+            this.$navFirstLink.focus();
+          } else {
+            if (event.shiftKey) {
+              event.preventDefault();
+              this.$content.focus();
+            }
+          }
+        }
+      }
+    }
+  }
+
+}(jQuery);
+
+Nav.init();
+  $(document).ready(function(){
+	  $('.backgroundTransition').backgroundTransition({
+		  backgrounds:[
+			  { src: '0416-1.jpg' },
+			  { src: '0416-2.jpg' },
+			  { src: '0416-3.jpg' },
+        { src: '0416-4.jpg' },
+        { src: '0416-5.jpg' },
+        { src: '0416-6.jpg' },
+        { src: '0416-7.jpg' }
+		  ],
+		  transitionDelay: 10,
+		  animationSpeed: 2300
+	  });
+  });
+</script>
+</body>
+</html>
