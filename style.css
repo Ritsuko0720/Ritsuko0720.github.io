@@ -3,7 +3,7 @@
 
 /* main */
 
-.body { overflow-x: hidden; background-color:#E6E9ED; }
+body { overflow-x: hidden; background-color:#E6E9ED; }
 
 a[href="#navigation"] {
   display: inline-block;
@@ -31,14 +31,14 @@ a[href="#navigation"]:hover { opacity: 0.9; }
 
 [data-nav-visible="true"] a[href="#navigation"] .bar { margin-top: -3px !important; }
 
-[data-nav-visible="true"] a[href="#navigation"] .bar .bar-1 {
+[data-nav-visible="true"] a[href="#navigation"] .bar.bar-1 {
   -webkit-transform: translateZ(0) rotate(45deg) translateY(0);
   transform: translateZ(0) rotate(45deg) translateY(0);
 }
 
-[data-nav-visible="true"] a[href="#navigation"] .bar .bar-2 { opacity: 0; }
+[data-nav-visible="true"] a[href="#navigation"] .bar.bar-2 { opacity: 0; }
 
-[data-nav-visible="true"] a[href="#navigation"] .bar .bar-3 {
+[data-nav-visible="true"] a[href="#navigation"] .bar.bar-3 {
   -webkit-transform: translateZ(0) rotate(-45deg) translateY(0);
   transform: translateZ(0) rotate(-45deg) translateY(0);
 }
@@ -75,12 +75,11 @@ a[href="#navigation"] .bar {
   transition: all 0.7s cubic-bezier(1, 0.1, 0, 0.9);
 }
 
-a[href="#navigation"] .bar .bar-1 {
+a[href="#navigation"] .bar.bar-1 {
   -webkit-transform: translateZ(0) rotate(0deg) translateY(-8px);
   transform: translateZ(0) rotate(0deg) translateY(-8px);
 }
-
-a[href="#navigation"] .bar .bar-3 {
+a[href="#navigation"] .bar.bar-3 {
   -webkit-transform: translateZ(0) rotate(0deg) translateY(8px);
   transform: translateZ(0) rotate(0deg) translateY(8px);
 }
@@ -127,7 +126,7 @@ nav[role="navigation"] {
   transform: translateZ(0) translateX(0);
 }
 
-nav[role="navigation"] > .ul {
+nav[role="navigation"] > ul {
   margin: 0;
   padding: 40px 0;
   list-style: none;
@@ -137,19 +136,19 @@ nav[role="navigation"] > .ul {
   transform: translateZ(0) translateX(100%) scale(0.6);
 }
 
-[data-nav-visible="true"] nav[role="navigation"] > .ul {
+[data-nav-visible="true"] nav[role="navigation"] > ul {
   -webkit-transition: all 0.2s ease 0.1s;
   transition: all 0.2s ease 0.1s;
   -webkit-transform: translateZ(0) translateX(0) scale(1);
   transform: translateZ(0) translateX(0) scale(1);
 }
 
-nav[role="navigation"] > .ul .li .active .a {
+nav[role="navigation"] > ul li.active a {
   border-left: 2px solid #03A9F4;
   background: #222;
 }
 
-nav[role="navigation"] > .ul .a {
+nav[role="navigation"] > ul a {
   display: block;
   padding: 15px 20px;
   color: white;
@@ -158,7 +157,7 @@ nav[role="navigation"] > .ul .a {
   border-left: 2px solid transparent;
 }
 
-nav[role="navigation"] > .ul .a:hover { background: #03A9F4; }
+nav[role="navigation"] > .ul a:hover { background: #03A9F4; }
 
 * {margin: 0; padding: 0;}
 
