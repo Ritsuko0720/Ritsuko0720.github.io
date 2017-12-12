@@ -24,21 +24,21 @@ a[href="#navigation"] {
 
 a[href="#navigation"]:hover { opacity: 0.9; }
 
-[data-nav-visible="true"] .a[href="#navigation"]:before {
+[data-nav-visible="true"] a[href="#navigation"]:before {
   -webkit-transform: translateZ(0) scale(1);
   transform: translateZ(0) scale(1);
 }
 
-[data-nav-visible="true"] .a[href="#navigation"] .bar { margin-top: -3px !important; }
+[data-nav-visible="true"] a[href="#navigation"] .bar { margin-top: -3px !important; }
 
-[data-nav-visible="true"] .a[href="#navigation"] .bar .bar-1 {
+[data-nav-visible="true"] a[href="#navigation"] .bar .bar-1 {
   -webkit-transform: translateZ(0) rotate(45deg) translateY(0);
   transform: translateZ(0) rotate(45deg) translateY(0);
 }
 
-[data-nav-visible="true"] .a[href="#navigation"] .bar .bar-2 { opacity: 0; }
+[data-nav-visible="true"] a[href="#navigation"] .bar .bar-2 { opacity: 0; }
 
-[data-nav-visible="true"] .a[href="#navigation"] .bar .bar-3 {
+[data-nav-visible="true"] a[href="#navigation"] .bar .bar-3 {
   -webkit-transform: translateZ(0) rotate(-45deg) translateY(0);
   transform: translateZ(0) rotate(-45deg) translateY(0);
 }
